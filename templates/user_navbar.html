@@ -29,7 +29,11 @@
           >
         </li>
         <li><hr class="dropdown-divider" /></li>
-        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+        <li>
+          <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+            <button type="submit" class="dropdown-item">Logout</button>
+          </form>
+        </li>
       </ul>
     </div>
   </div>
@@ -56,7 +60,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
-        </li>      
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
+        </li>   
         <li class="dropdown text-light d-block d-lg-none">
           <a href="#" data-bs-toggle="dropdown" class="nav-link">Profile</a>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -70,7 +77,9 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+                <button type="submit" class="dropdown-item">Logout</button>
+              </form>
             </li>
           </ul>
         </li>
@@ -88,8 +97,7 @@
             src="{% if user.profile_picture %}{{MEDIA_URL}}{{user.profile_picture.url}}{% else %}{% static 'images/male_avater.png' %}{% endif %}" alt="Profile_picture"
             width="40"
             height="40"
-            class="rounded-circle"
-          />
+            class="rounded-circle"/>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-end">
@@ -102,7 +110,11 @@
             >
           </li>
           <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+          <li>
+            <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+              <button type="submit" class="dropdown-item">Logout</button>
+            </form>
+          </li>
         </ul>
       </div>
     </div>
